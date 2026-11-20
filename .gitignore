@@ -224,6 +224,7 @@ __marimo__/
 *.csv
 data/
 
-# This repo is public (GitHub Pages). Operational drafts below hold guest
-# Wi-Fi credentials and must never be committed here.
-guest-guide/airbnb-listing-text-unit-2.md
+# This repo is public (GitHub Pages). guest-guide/ is the local working folder:
+# the posters carry the guest Wi-Fi password and the listing drafts carry it
+# too, so none of it may be committed. Only docs/ is meant to be published.
+guest-guide/
