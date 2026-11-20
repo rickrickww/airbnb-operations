@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="color-scheme" content="light dark">
+  <!-- Tints the phone browser's address bar to match the banner -->
+  <meta name="theme-color" content="#42362e" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#15110e" media="(prefers-color-scheme: dark)">
+  <title>Unit 1 Guest Guide</title>
+  <!--
+    PRIVACY RULES FOR THIS PAGE
+    Anyone with the link can read it, including past guests.
+    Never add door codes, the Wi-Fi network name or password, or anything
+    about when the home is empty. Guests get those privately in the Airbnb app.
+
+    PHOTOS
+    All photos live in the photos/ folder next to this file. To swap one out,
+    replace the file in that folder, keeping the same file name.
+  -->
+  <style>
+    :root {
+      /* Palette */
+      --ink:   #42362e;   /* darkest brown  */
+      --taupe: #a8917f;   /* mid brown      */
+      --clay:  #b69788;   /* warm rose-brown*/
+      --stone: #d2ccc4;   /* light greige   */
+      --paper: #f7f9f6;   /* off-white      */
+
+      --bg: var(--paper);
+      --card: #ffffff;
+      --text: var(--ink);
+      --muted: #7b6a5c;
+      --label: #6f5d4f;
+      --line: #e7e2da;
+      --tint: #f1ede7;
+      --shadow: 0 1px 3px rgba(66,54,46,.07), 0 8px 24px rgba(66,54,46,.05);
+    }
+    /* Dark values live in one place; the two blocks below apply them for the
+       system setting and for an explicit dark choice. */
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --ink:   #f1ece5;
+        --taupe: #c7ab96;
+        --clay:  #d6b5a4;
+        --stone: #4a4039;
+        --paper: #241e19;
+
+        --bg: #1d1814;
+        --card: #2a231e;
+        --text: #f1ece5;
+        --muted: #b3a596;
+        --label: #c0b0a0;
+        --line: #3b322b;
+        --tint: #322a24;
+        --shadow: 0 1px 3px rgba(0,0,0,.4);
+        color-scheme: dark;
+      }
+    }
+    :root[data-theme="dark"] {
+      --ink:   #f1ece5;
+      --taupe: #c7ab96;
+      --clay:  #d6b5a4;
+      --stone: #4a4039;
+      --paper: #241e19;
+
+      --bg: #1d1814;
+      --card: #2a231e;
+      --text: #f1ece5;
+      --muted: #b3a596;
+      --label: #c0b0a0;
+      --line: #3b322b;
+      --tint: #322a24;
+      --shadow: 0 1px 3px rgba(0,0,0,.4);
+      color-scheme: dark;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font: 17px/1.62 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      -webkit-text-size-adjust: 100%;
+    }
+    .wrap { max-width: 640px; margin: 0 auto; padding: 0 18px; }
+    .serif { font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif; }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      background: #42362e;
+      color: #f7f9f6;
+      padding: 26px 0 30px;
+      text-align: center;
+      border-top: 7px solid #b69788;
+    }
+    @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .hero { background: #15110e; } }
+    :root[data-theme="dark"] .hero { background: #15110e; }
+    .badge {
+      display: inline-block;
+      font-size: 11.5px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase;
+      color: #d2ccc4;
+      border: 1px solid rgba(210,204,196,.45);
+      padding: 5px 14px; border-radius: 999px;
+    }
+    .hero h1 {
+      font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+      font-size: 33px; line-height: 1.22; font-weight: 500;
+      margin: 18px 0 12px; letter-spacing: -.01em;
+    }
+    .hero .addr { margin: 0; font-size: 15px; letter-spacing: .02em; color: #d2ccc4; }
+    .hero .rule { width: 42px; height: 1px; background: rgba(210,204,196,.5); margin: 16px auto 0; }
+
+    /* ---------- Photos ---------- */
+    .photo {
+      display: block; width: 100%; height: auto; object-fit: cover;
+      border-radius: 14px; margin: 0 0 12px;
+    }
+    /* A photo in a fixed frame, optionally with an arrow drawn on top */
+    .figure { position: relative; margin: 0 0 12px; }
+    .figure img {
+      display: block; width: 100%; aspect-ratio: 5 / 3;
+      object-fit: cover; object-position: 50% 42%;
+      border-radius: 14px;
+      filter: brightness(1.05) contrast(1.07) saturate(1.12);
+    }
+    .figure--tall img { aspect-ratio: 4 / 3; object-position: 50% 62%; }
+    /* The arrow overlay must match the image box, not the whole figure,
+       otherwise the caption pushes the arrow out of position. */
+    .figure svg { position: absolute; top: 0; left: 0; width: 100%; aspect-ratio: 5 / 3; }
+    .arrow-halo, .arrow-halo-head { fill: none; stroke: #f7f9f6; stroke-width: 13; stroke-linecap: round; }
+    .arrow-halo-head { fill: #f7f9f6; stroke-linejoin: round; }
+    .arrow-line { fill: none; stroke: #42362e; stroke-width: 6.5; stroke-linecap: round; }
+    .arrow-head { fill: #42362e; }
+    .figure figcaption {
+      margin-top: 8px; font-size: 14.5px; color: var(--muted); text-align: center;
+    }
+
+    .hero-shot { margin-top: 18px; }
+    .hero-shot .photo { margin-bottom: 0; }
+
+    /* ---------- Key facts ---------- */
+    .facts { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 16px; }
+    .fact {
+      background: var(--card); border: 1px solid var(--line); border-radius: 14px;
+      padding: 13px 15px; box-shadow: var(--shadow);
+    }
+    .fact .label {
+      font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+      color: var(--label); margin-bottom: 3px;
+    }
+    .fact .value { font-weight: 600; line-height: 1.38; }
+    .fact.wide { grid-column: 1 / -1; }
+
+    /* ---------- Sections ---------- */
+    section { padding: 32px 0 4px; }
+    main > section:first-child { padding-top: 26px; }
+    section > h2 {
+      font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+      font-size: 25px; font-weight: 500; margin: 0 0 4px; letter-spacing: -.01em;
+    }
+    section > .eyebrow {
+      font-size: 11px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--label); margin: 0 0 12px;
+    }
+    section > .eyebrow::after {
+      content: ""; display: block; width: 34px; height: 2px;
+      background: var(--taupe); margin-top: 9px;
+    }
+
+    .card {
+      background: var(--card); border: 1px solid var(--line); border-radius: 16px;
+      padding: 17px 18px; margin-bottom: 12px; box-shadow: var(--shadow);
+    }
+    .card h3 { font-size: 16.5px; margin: 0 0 8px; font-weight: 650; }
+    .card p { margin: 0 0 9px; }
+    .card ul, .card ol { margin: 0 0 9px; padding-left: 21px; }
+    .card li { margin-bottom: 6px; }
+    .card li::marker { color: var(--taupe); }
+    .card > :last-child { margin-bottom: 0; }
+    a { color: var(--text); }
+
+    /* Numbered steps */
+    ol.steps { list-style: none; padding: 0; counter-reset: s; }
+    ol.steps li { counter-increment: s; position: relative; padding-left: 38px; margin-bottom: 14px; }
+    ol.steps li::before {
+      content: counter(s); position: absolute; left: 0; top: 1px;
+      width: 26px; height: 26px; border-radius: 50%;
+      background: var(--tint); border: 1px solid var(--taupe); color: var(--text);
+      font-size: 13px; font-weight: 700; display: grid; place-items: center;
+    }
+
+    /* Checklist */
+    ul.check { list-style: none; padding: 0; }
+    ul.check li { position: relative; padding-left: 30px; margin-bottom: 11px; }
+    ul.check li::before {
+      content: "✓"; position: absolute; left: 1px; top: 0;
+      width: 21px; height: 21px; border-radius: 50%;
+      background: var(--tint); color: var(--taupe);
+      font-size: 12px; font-weight: 800; display: grid; place-items: center;
+    }
+
+    /* Place lists */
+    .places { list-style: none; padding: 0; margin: 0; }
+    .places li { padding: 11px 0; border-top: 1px solid var(--line); margin: 0; }
+    .places li:first-child { border-top: 0; padding-top: 0; }
+    .places strong { display: block; font-weight: 600; }
+    .places span { color: var(--muted); font-size: 14.5px; }
+
+    /* Bins */
+    .bins { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 13px 0; }
+    .bin {
+      border: 1px solid var(--line); border-radius: 13px;
+      padding: 13px 8px 12px; text-align: center; font-size: 13px; line-height: 1.4;
+      color: var(--muted);
+    }
+    .bin .ic {
+      font-size: 19px; display: block; margin-bottom: 5px;
+      filter: grayscale(.65) sepia(.3) saturate(.85);
+    }
+    .bin b { display: block; font-size: 14.5px; color: var(--text); margin-bottom: 3px; }
+    .bin-1 { background: var(--tint); }
+    .bin-2 { background: #ebe5dd; }
+    .bin-3 { background: #f2e6de; }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) .bin-2 { background: #362e27; }
+      :root:not([data-theme="light"]) .bin-3 { background: #3b2e27; }
+    }
+    :root[data-theme="dark"] .bin-2 { background: #362e27; }
+    :root[data-theme="dark"] .bin-3 { background: #3b2e27; }
+
+    .note {
+      background: var(--tint); border-left: 3px solid var(--taupe);
+      border-radius: 0 10px 10px 0; padding: 12px 14px; font-size: 15px;
+    }
+
+    /* Review card */
+    .review-card { background: var(--tint); border-color: var(--taupe); text-align: center; }
+    .review-card .note { background: var(--card); text-align: left; }
+    .stars { font-size: 22px; letter-spacing: .18em; color: var(--clay); margin: 0 0 10px; }
+
+    /* Buttons */
+    .btn {
+      display: block; text-align: center; text-decoration: none; font-weight: 600;
+      background: var(--ink); color: var(--paper);
+      border-radius: 12px; padding: 14px 16px; margin-top: 12px;
+      letter-spacing: .01em;
+    }
+    .btn.outline { background: transparent; color: var(--text); border: 1.5px solid var(--taupe); }
+
+    footer {
+      text-align: center; padding: 38px 18px 48px; color: var(--muted); font-size: 14.5px;
+      border-top: 1px solid var(--line); margin-top: 34px;
+    }
+    footer .mark {
+      font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+      display: block; font-size: 19px; color: var(--text); margin-bottom: 6px;
+    }
+
+    @media print {
+      body { background: #fff; color: #000; font-size: 12pt; }
+      .hero { background: none; color: #000; padding-bottom: 8px; }
+      .hero .addr, .badge { color: #333; border-color: #999; }
+      .card, .fact { break-inside: avoid; box-shadow: none; border: 1px solid #bbb; }
+      .btn { border: 1px solid #000; color: #000; background: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="hero">
+    <div class="wrap">
+      <span class="badge">Unit 1</span>
+      <h1>Welcome.<br>Make yourself at home.</h1>
+      <p class="addr">10086 Gilmore Crescent, Richmond</p>
+      <div class="rule"></div>
+    </div>
+  </header>
+
+  <div class="wrap hero-shot">
+    <img class="photo" src="photos/suite.jpg" alt="The living room, with a sofa, coffee table and smart TV">
+  </div>
+
+  <div class="wrap">
+    <div class="facts">
+      <div class="fact">
+        <div class="label">Check-in</div>
+        <div class="value">From 4:00 PM</div>
+      </div>
+      <div class="fact">
+        <div class="label">Check-out</div>
+        <div class="value">By 10:00 AM</div>
+      </div>
+      <div class="fact wide">
+        <div class="label">Door passcode</div>
+        <div class="value">The last 4 digits of the phone number on your booking</div>
+      </div>
+      <div class="fact wide">
+        <div class="label">Wi-Fi</div>
+        <div class="value">Network and password are in the Airbnb app</div>
+      </div>
+    </div>
+  </div>
+
+  <main class="wrap">
+
+    <section id="arrival">
+      <h2 class="serif">Arrival</h2>
+      <p class="eyebrow">Getting here &amp; getting in</p>
+
+      <div class="card">
+        <h3>Getting here</h3>
+        <p>About a 6-minute drive from Vancouver International Airport (YVR). An Uber or Lyft costs around $20&ndash;30 CAD. Gilmore Crescent is off No. 4 Road.</p>
+        <a class="btn outline" href="https://maps.google.com/?q=10086+Gilmore+Crescent,+Richmond,+BC">Open in Maps</a>
+      </div>
+
+      <div class="card">
+        <h3>Parking</h3>
+        <p>There is <strong>one shared parking spot</strong> on the property, outlined in the photo below.</p>
+        <figure class="figure figure--tall">
+          <img src="photos/parking.jpg" alt="The driveway, with the shared parking spot outlined in white">
+          <figcaption>The shared parking spot</figcaption>
+        </figure>
+        <p>If it's already taken, please park on the road. There is free street parking on Gilmore Crescent, Finlayson Drive, and No. 4 Road.</p>
+        <p>Please don't block the driveway or a neighbour's access.</p>
+      </div>
+
+      <div class="card">
+        <h3>Getting in</h3>
+        <figure class="figure">
+          <img src="photos/entrance.jpg" alt="The front of the house, with an arrow pointing to the path down the right-hand side">
+          <svg viewBox="0 0 500 300" aria-hidden="true">
+            <defs>
+              <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+                <feDropShadow dx="0" dy="1.5" stdDeviation="2.5" flood-color="#000" flood-opacity=".45"/>
+              </filter>
+            </defs>
+            <g filter="url(#shadow)">
+              <path class="arrow-halo" d="M300 276 Q 385 270 433 230"/>
+              <polygon class="arrow-halo-head" points="451,215 436,243 418,224"/>
+              <path class="arrow-line" d="M300 276 Q 385 270 433 230"/>
+              <polygon class="arrow-head" points="451,215 436,243 418,224"/>
+            </g>
+          </svg>
+          <figcaption>Your entrance is down the right-hand side</figcaption>
+        </figure>
+        <ol class="steps">
+          <li>Unit 1 is on the <strong>right</strong> side of the house. Go through the gate on the right and follow the path along the side. There are stairs up to the suite.</li>
+          <li>On the keypad, enter your passcode: the <strong>last 4 digits of the phone number on your booking</strong>.</li>
+          <li>Press the <strong>✔️</strong> button to unlock.</li>
+          <li>To lock the door, hold the <strong>✔️</strong> button for 3 seconds.</li>
+        </ol>
+        <p class="note">Self check-in is available from 4:00 PM until 2:00 AM. Can't find the entrance? Message us in the Airbnb app and we'll guide you in.</p>
+      </div>
+
+      <div class="card">
+        <h3>Arriving early or leaving late?</h3>
+        <p>Luggage drop-off before check-in or after check-out is available on request, and late check-out may be possible. Please message us in advance.</p>
+      </div>
+    </section>
+
+    <section id="checkout">
+      <h2 class="serif">Check-out</h2>
+      <p class="eyebrow">Before you go</p>
+      <div class="card">
+        <h3>By 10:00 AM, please</h3>
+        <ul class="check">
+          <li>Put used cups and dishes in the dishwasher. No need to run it.</li>
+          <li>Leave used towels and linens in the bathroom basket.</li>
+          <li>Sort your rubbish into garbage, recycling, and compost.</li>
+          <li>Turn off all lights, the thermostat, and the air conditioner.</li>
+          <li>Check for your belongings.</li>
+          <li>Lock the door: hold the ✔️ button for 3 seconds.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="rules">
+      <h2 class="serif">House rules</h2>
+      <p class="eyebrow">Keeping everyone comfortable</p>
+      <div class="card">
+        <ul>
+          <li>Quiet hours are 11:00 PM to 7:00 AM, outdoors too.</li>
+          <li>No smoking or vaping indoors or near doors and windows. Signs of smoking lead to a deep-cleaning fee.</li>
+          <li>No pets, parties, events, or drug use.</li>
+          <li>Please take off your shoes at the door. Clean slippers are provided and disinfected between guests.</li>
+          <li>Flush toilet paper only. No wipes, paper towels, or feminine products.</li>
+          <li>Please don't move or rearrange the furniture.</li>
+          <li>Never leave cooking unattended, and take care with candles or any open flame.</li>
+          <li>Please tell us about any damage or maintenance issue right away so we can fix it.</li>
+          <li>No commercial photography or filming without written permission.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="suite">
+      <h2 class="serif">The suite</h2>
+      <p class="eyebrow">How everything works</p>
+
+      <div class="card">
+        <h3>Where you'll sleep</h3>
+        <ul>
+          <li><strong>Bedroom 1:</strong> one queen bed</li>
+          <li><strong>Bedroom 2:</strong> one queen bed</li>
+          <li><strong>Living room:</strong> a sofa bed</li>
+        </ul>
+        <p>Both bedrooms have room-darkening shades, a closet, and hangers. Extra pillows and blankets are provided.</p>
+      </div>
+
+      <div class="card">
+        <h3>Wi-Fi</h3>
+        <p>The network name and password are in the Airbnb app, in your reservation details.</p>
+        <p>The connection is fast, around 400 Mbps, so video calls and 4K streaming are no problem. If the internet drops, message us and we'll sort it out.</p>
+      </div>
+
+      <div class="card">
+        <h3>Heating</h3>
+        <p>The suite has radiant heating, controlled by the <strong>Google Nest thermostat</strong> on the wall. Turn the ring to set the temperature you'd like.</p>
+        <p>A portable heater is also provided if you'd like extra warmth.</p>
+      </div>
+
+      <div class="card">
+        <h3>Cooling</h3>
+        <p>For the air conditioning, use the <strong>remote on the TV counter</strong>. That remote controls the air conditioner only, not the heating.</p>
+        <p>A ceiling fan and portable fans are also available.</p>
+        <p>The windows are casement style. Please close and lock them when you go out.</p>
+      </div>
+
+      <div class="card">
+        <h3>Kitchen</h3>
+        <img class="photo" src="photos/kitchen.jpg" alt="The kitchen counter, with kettle and Nespresso machine">
+        <ul>
+          <li>Fridge and freezer</li>
+          <li>Dishwasher</li>
+          <li>Kettle</li>
+          <li>Nespresso machine with assorted pods</li>
+          <li>Dishes, cutlery, and wine glasses</li>
+          <li>Dish soap, hand soap, and paper towels</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Garbage, recycling &amp; compost</h3>
+        <p>Please sort everything into three bins:</p>
+        <div class="bins">
+          <div class="bin bin-1"><span class="ic" aria-hidden="true">🗑️</span><b>Garbage</b>Bin near the entrance</div>
+          <div class="bin bin-2"><span class="ic" aria-hidden="true">♻️</span><b>Recycling</b>Under the kitchen sink</div>
+          <div class="bin bin-3"><span class="ic" aria-hidden="true">🍃</span><b>Compost</b>Bin on the counter</div>
+        </div>
+        <p>Please don't put food in the garbage. Food scraps go in the compost bin.</p>
+      </div>
+
+      <div class="card">
+        <h3>Bathroom</h3>
+        <img class="photo" src="photos/bathroom.jpg" alt="The bathroom, with a walk-in shower and lit mirror">
+        <p>One towel per guest, toilet paper, shampoo, conditioner, body wash, and a hair dryer. Need more towels? Just ask.</p>
+      </div>
+
+      <div class="card">
+        <h3>Using the sofa bed</h3>
+        <p>The living room sofa converts to a bed. Pull the armrests up and slide them out to remove them. Extra pillows and blankets are provided.</p>
+      </div>
+
+      <div class="card">
+        <h3>Laundry</h3>
+        <p>A washer and dryer are available in a shared space for <strong>$15 per use</strong>. Please message us in advance to arrange access. A drying rack and an iron are in the suite.</p>
+      </div>
+
+      <div class="card">
+        <h3>TV</h3>
+        <p>The 58" smart TV has Netflix, Disney+, and YouTube. Sign in with your own accounts, and please sign out before you leave.</p>
+      </div>
+
+      <div class="card">
+        <h3>Security cameras</h3>
+        <p>For everyone's safety, cameras record outside the property 24/7. There are no cameras inside the suite.</p>
+      </div>
+    </section>
+
+    <section id="nearby">
+      <h2 class="serif">Nearby</h2>
+      <p class="eyebrow">Our neighbourhood picks</p>
+
+      <div class="card">
+        <h3>Restaurants &amp; cafés</h3>
+        <ul class="places">
+          <li><strong>The Story Cafe</strong><span>Café, eatery, and bar</span></li>
+          <li><strong>Dai Jang Kum</strong><span>Korean BBQ</span></li>
+          <li><strong>Chop</strong><span>Steakhouse</span></li>
+          <li><strong>Moxies</strong><span>Casual dining</span></li>
+          <li><strong>A&amp;W</strong><span>Quick burgers</span></li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Groceries &amp; essentials</h3>
+        <ul class="places">
+          <li><strong>Foody World</strong><span>Asian supermarket</span></li>
+          <li><strong>Costco</strong><span>Warehouse store (membership needed)</span></li>
+          <li><strong>Fujiya</strong><span>Japanese grocery and convenience store</span></li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Getting around</h3>
+        <ul>
+          <li><strong>Airport (YVR):</strong> about 6 minutes by car, around $20&ndash;30 CAD by Uber or Lyft.</li>
+          <li><strong>SkyTrain:</strong> Bridgeport Station on the Canada Line is about a 16-minute walk, with trains to the airport, Richmond Centre, and downtown Vancouver.</li>
+          <li><strong>Driving:</strong> the Oak Street Bridge is close by for a quick route into Vancouver.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Things to do</h3>
+        <img class="photo" src="photos/park.jpg" alt="The path through Tait Waterfront Park">
+        <ul>
+          <li><strong>Tait Waterfront Park:</strong> a 5-minute walk away, with paths along the water. Lime e-scooters and e-bikes can be rented here.</li>
+          <li><strong>River Road Dyke Trail:</strong> a scenic walk along the river, good for a morning stroll.</li>
+          <li><strong>Richmond Night Market:</strong> a seasonal outdoor market with food stalls and entertainment, near Bridgeport Station.</li>
+          <li><strong>Richmond Centre:</strong> the main shopping mall, easy to reach by SkyTrain.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="help">
+      <h2 class="serif">Help</h2>
+      <p class="eyebrow">If you need anything</p>
+
+      <div class="card">
+        <h3>Emergency</h3>
+        <p>For fire, police, or ambulance, call <strong>911</strong> first, then let us know.</p>
+        <a class="btn" href="tel:911">Call 911</a>
+        <ul style="margin-top:15px">
+          <li><strong>Fire extinguisher:</strong> near the entrance</li>
+          <li><strong>First aid kit:</strong> in the kitchen, in the bottom drawer under the cooktop</li>
+          <li>Smoke and carbon monoxide alarms are installed in the suite.</li>
+          <li><strong>Nearest hospital:</strong> Richmond Hospital, 7000 Westminster Highway</li>
+          <li><strong>Non-urgent health advice:</strong> call 811 (HealthLink BC)</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Something not working?</h3>
+        <p>Message us in the Airbnb app if something is broken, there's a power or water problem, or you're locked out. That's the fastest way to reach us, and we reply as quickly as we can.</p>
+      </div>
+    </section>
+
+    <section id="review">
+      <h2 class="serif">Before you review</h2>
+      <p class="eyebrow">A small favour</p>
+
+      <div class="card review-card">
+        <p class="stars" aria-hidden="true">★★★★★</p>
+        <p>We're a small, family-run place, and your review genuinely matters to us.</p>
+        <p>On Airbnb, a <strong>5-star rating simply means the stay was as described</strong>. It isn't reserved for something extraordinary. Ratings below that are treated as a problem with the listing, so even 4 stars sets us back quite a bit.</p>
+        <p>So if anything at all falls short &mdash; a missing towel, something not working, a question about the suite &mdash; please <strong>message us during your stay</strong> rather than after. We'd much rather fix it while you're still here.</p>
+        <p class="note">Thank you for helping us keep this a welcoming place for the next guest.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <span class="mark">Enjoy your stay</span>
+    Thank you for staying with us in Richmond.
+  </footer>
+
+</body>
+</html>
