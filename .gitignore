@@ -223,3 +223,7 @@ __marimo__/
 .DS_Store
 *.csv
 data/
+
+# This repo is public (GitHub Pages). Operational drafts below hold guest
+# Wi-Fi credentials and must never be committed here.
+guest-guide/airbnb-listing-text-unit-2.md
